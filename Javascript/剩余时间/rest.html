@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* background-color: pink; */
+        }
+
+        .bgColor {
+            background-color: skyblue;
+            width: 1000px;
+            height: 400px;
+            margin: 300px auto;
+            border-radius: 10px;
+            font-size: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bgColor:hover {
+            scale: 1.2;
+            transition: all 1s;
+        }
+
+        span:hover {
+            scale: 1.2;
+            transition: all 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bgColor">
+        <span id="days"></span>天:
+        <span id="hours"></span>时:
+        <span id="mins"></span>分:
+        <span id="seconds"></span>秒
+    </div>
+
+
+    <script>
+        setInterval(resTIme, 1000);
+        function resTIme() {
+            var now = new Date();
+            var end = new Date("2023/5/1");
+            var rest = ((end - now) / 1000);
+            console.log(rest);
+            if (rest > 0) {
+                var d = parseInt(rest / (24 * 60 * 60));
+                var h = parseInt(rest % (24 * 60 * 60) / 3600);
+                var m = parseInt((rest % 3600) / 60);
+                var s = parseInt(rest % 60);
+
+                days.innerHTML = d >= 10 ? d : "0" + d;
+                hours.innerHTML = h >= 10 ? h : "0" + h;
+                mins.innerHTML = m >= 10 ? m : "0" + m;
+                seconds.innerHTML = s >= 10 ? s : "0" + s;
+
+            }
+        }
+
+        resTIme();
+
+
+
+    </script>
+</body>
+
+</html>
